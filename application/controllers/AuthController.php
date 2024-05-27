@@ -39,8 +39,7 @@ class AuthController extends BaseController
 				$this->session->set_userdata('user_role', $user->role);
 				redirect('UserController');
 			} else {
-				$this->session->set_flashdata('message', 'Invalid email or password');
-				$this->session->set_flashdata('message_type', 'error');
+				$this->session->set_flashdata('login_error', 'Invalid email or password');
 				redirect('AuthController/login');
 			}
 		}
@@ -51,8 +50,6 @@ class AuthController extends BaseController
 		$this->session->unset_userdata('user_id');
 		$this->session->unset_userdata('user_name');
 		$this->session->unset_userdata('user_role');
-		$this->session->set_flashdata('message', 'Logged out successfully');
-		$this->session->set_flashdata('message_type', 'success');
 		redirect('AuthController/login');
 	}
 }

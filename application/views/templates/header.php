@@ -63,12 +63,26 @@
 			color: #fff !important;
 		}
 
+		.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+			background-color: #5a379a !important;
+			color: #fff !important;
+		}
+
 		.dataTables_wrapper .dataTables_filter input {
 			border: 1px solid #6f42c1;
 		}
 
 		.swal2-popup {
-			font-size: 1.6rem !important;
+			font-size: 1rem !important;
+			max-width: 400px !important;
+			/* Adjust this value to make it smaller or larger */
+			padding: 20px !important;
+		}
+
+		.alert-danger {
+			color: #721c24;
+			background-color: #f8d7da;
+			border-color: #f5c6cb;
 		}
 	</style>
 </head>
@@ -83,7 +97,12 @@
 			<ul class="navbar-nav ml-auto">
 				<?php if ($this->session->userdata('user_id')) : ?>
 					<li class="nav-item">
-						<a class="nav-link" href="<?php echo site_url('AuthController/logout'); ?>">Logout</a>
+						<span class="navbar-text mr-3">
+							<?php echo $this->session->userdata('user_name'); ?> (<?php echo ucfirst($this->session->userdata('user_role')); ?>)
+						</span>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link btn-danger text-white" href="<?php echo site_url('AuthController/logout'); ?>">Logout</a>
 					</li>
 				<?php endif; ?>
 			</ul>
@@ -92,7 +111,10 @@
 	<div class="sidebar">
 		<ul class="nav flex-column">
 			<li class="nav-item">
-				<a class="nav-link active" href="<?php echo site_url('UserController'); ?>">Users</a>
+				<a class="nav-link" href="<?php echo site_url('UserController'); ?>">Users</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="<?php echo site_url('LaporanController'); ?>">Laporan</a>
 			</li>
 		</ul>
 	</div>

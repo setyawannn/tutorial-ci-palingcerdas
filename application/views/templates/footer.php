@@ -6,17 +6,16 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.9/dist/sweetalert2.all.min.js"></script>
 <script>
 	$(document).ready(function() {
-		$('#usersTable').DataTable();
+		$('#usersTable, #laporanTable').DataTable();
 	});
-</script>
-<?php if ($this->session->flashdata('message')) : ?>
-	<script>
+
+	<?php if ($this->session->flashdata('message') && $this->router->fetch_class() !== 'authcontroller' && $this->router->fetch_method() !== 'login') : ?>
 		Swal.fire({
 			icon: '<?php echo $this->session->flashdata('message_type'); ?>',
 			title: '<?php echo $this->session->flashdata('message'); ?>'
 		});
-	</script>
-<?php endif; ?>
+	<?php endif; ?>
+</script>
 </body>
 
 </html>

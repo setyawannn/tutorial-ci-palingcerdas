@@ -66,3 +66,11 @@ $route['users/view/(:num)'] = 'UserController/view/$1';
 $route['login'] = 'AuthController/login';
 $route['logout'] = 'AuthController/logout';
 $route['default_controller'] = 'UserController';
+
+// Laporan routes
+$route['laporan'] = 'LaporanController';
+$route['laporan/create'] = 'LaporanController/create';
+$route['laporan/store'] = 'LaporanController/store';
+$route['laporan/edit/(:any)'] = 'LaporanController/edit/$1';
+$route['laporan/update/(:any)'] = 'LaporanController/update/$1';
+$route['laporan/delete/(:any)'] = 'LaporanController/delete/$1';

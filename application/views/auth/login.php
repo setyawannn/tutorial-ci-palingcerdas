@@ -2,12 +2,12 @@
 
 <div class="container">
 	<h1 class="mt-4">Login</h1>
-	<?php echo validation_errors(); ?>
-	<?php if ($this->session->flashdata('message')) : ?>
-		<div class="alert alert-<?php echo $this->session->flashdata('message_type'); ?>">
-			<?php echo $this->session->flashdata('message'); ?>
+	<?php if ($this->session->flashdata('login_error')) : ?>
+		<div class="alert alert-danger">
+			<?php echo $this->session->flashdata('login_error'); ?>
 		</div>
 	<?php endif; ?>
+	<?php echo validation_errors('<div class="alert alert-danger">', '</div>'); ?>
 	<?php echo form_open('AuthController/login_process'); ?>
 	<div class="form-group">
 		<label for="email">Email</label>
